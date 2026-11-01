@@ -6,7 +6,6 @@
     <style>
         body { font-family: Arial, sans-serif; background-color: #1a1a1a; color: #fff; text-align: center; }
         img { border: 3px solid #555; max-width: 100%; height: auto; }
-        /* Убираем рамку у зон и меняем курсор на указатель при наведении */
         area { outline: none; cursor: pointer; }
     </style>
 </head>
@@ -14,14 +13,10 @@
 
     <h2>Карта Лос-Сантоса</h2>
     <p>Наведите курсор на район, чтобы увидеть название</p>
-
-    <!-- Сама картинка. Не забудьте указать правильное имя файла в src -->
     <img src="map5.jpg" usemap="#los_santos" alt="Карта Лос-Сантоса">
-
     <map name="los_santos">
         
         <!-- 1. ВЕСПУЧЧИ-БИЧ (Пляж на западе) -->
-        <!-- Используем многоугольник, так как берег изогнутый -->
         <area shape="poly" 
               coords="120,250, 220,180, 300,280, 250,480, 180,430, 110,330" 
               href="https://gta.fandom.com/wiki/Vespucci" 
