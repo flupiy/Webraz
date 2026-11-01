@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <div class="menu-container">
+        <div class="menu-title">СЛОЙ МЕНЮ</div>
+        <br>
+        <a href="index.html" class="menu-link">Главная</a>
+        <a href="anketa.html" class="menu-link">Анкета</a>
+      <a href="zadanie_5.html" class="menu-link">Динамические таблицы</a>
+      <a href="Ex4.html" class="menu-link">Практическая работы 9. Задание 1</a>
+      <a href="Ex5.html" class="menu-link">Практическая работа 9. Задание 2</a>
+      <a href="Ex6.html" class="menu-link">Практическая работа 9. Задание 3</a>
+      <a href="Ex7.html" class="menu-link">Практическая работа 9. Задание 4</a>
+      <a href="Ex8.html" class="menu-link">Практическая работа 9. Задание 5</a>
+      <br>
+    </div>
+    <title>Задание 2 - for</title>
+</head>
+<body> 
+    <h1>Пример с линиями</h1>
+    <script type="text/javascript">
+        function line(widthSize) {
+            document.write("<hr align='center' width='" + widthSize + "'>");
+        }
+        for (var i = 1; i <= 10; i++) {
+            // Первая линия 10px, каждая следующая на 10px больше
+            var currentWidth = i * 10; 
+            line(currentWidth);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <div class="menu-container">
+        <div class="menu-title">СЛОЙ МЕНЮ</div>
+        <br>
+        <a href="index.html" class="menu-link">Главная</a>
+    <a href="tablicy.html" class="menu-link">Таблицы</a>
+        <a href="anketa.html" class="menu-link">Анкета</a>
+      <a href="zadanie_5.html" class="menu-link">Динамические таблицы</a>
+      <a href="Ex5.html" class="menu-link">Практическая работа 9. Задание 2</a>
+      <a href="Ex6.html" class="menu-link">Практическая работа 9. Задание 3</a>
+      <a href="Ex7.html" class="menu-link">Практическая работа 9. Задание 4</a>
+      <a href="Ex8.html" class="menu-link">Практическая работа 9. Задание 5</a>
+      <br>
+    </div>
+    <title>Задание 1 - if</title>
+</head>
+<body> 
+    <h2>Задание 1. Работа с условием if</h2>
+    <script type="text/javascript">
+        var x, y;
+        // Метод parseInt() переводит строку в целое число
+        x = parseInt(prompt("Введите значение х", ''));
+        y = parseInt(prompt("Введите значение у", ''));
+
+        if (x < y) {
+            alert("Максимальное число - y");
+        } else if (x > y) {
+            alert("Максимальное число - x");
+        } else {
+            // Дополнение для пункта 2
+            alert("Введенные числа равны!");
+        }
+        var password = "secret123"; // Верное значение пароля
+        var userPassword = prompt("Введите правильный пароль:");
+        if (userPassword === password) {
+            alert("Пароль верен! Добро пожаловать.");
+        } else {
+            alert("Неправильно введен пароль!");
+        }
+    </script>
+</body>
+</html>

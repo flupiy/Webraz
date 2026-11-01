@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Задание 4 - Массивы</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        function showSubjects() {
+            var allSubjects = [
+                "Математика", "Физика", "Информатика", 
+                "История", "Литература", "Русский язык"
+            ];
+            var exactSciences = allSubjects.slice(0, 3);
+            var humanities = allSubjects.slice(3);
+            var outputDiv = document.getElementById('output');
+            var html = "<h3>Точные науки:</h3>";
+            html += exactSciences.join(", ") + "<br>";
+            html += "<h3>Гуманитарные науки:</h3>";
+            html += humanities.join(", ") + "<br>";
+            outputDiv.innerHTML = html;
+        }
+    </script>
+</head>
+<body onload="showSubjects()">
+
+  <div class="menu-container">
+        <div class="menu-title">СЛОЙ МЕНЮ</div>
+        <br>
+        <a href="index.html" class="menu-link">Главная</a>
+        <a href="tablicy.html" class="menu-link">Таблицы</a>
+        <a href="anketa.html" class="menu-link">Анкета</a>
+        <a href="zadanie_5.html" class="menu-link">Динамические таблицы</a>
+        <a href="Ex4.html" class="menu-link">Практическая работы 9. Задание 1</a>
+        <a href="Ex5.html" class="menu-link">Практическая работа 9. Задание 2</a>
+        <a href="Ex6.html" class="menu-link">Практическая работа 9. Задание 3</a>      
+        <a href="Ex8.html" class="menu-link">Практическая работа 9. Задание 5</a>
+        <br>
+  </div>
+
+  <!-- Контейнер, куда скрипт вставит массивы -->
+  <div id="output"></div>
+
+    <p>
+      1. Что такое Hoisting
+      Hoisting — это механизм в языке JavaScript, при котором объявления переменных и функций перемещаются в начало их области видимости (глобальной или функции) ещё до выполнения самого кода.
+    </p>
+    <p>
+      2. Что означает функция alert
+      alert() — это встроенная функция браузера (часть объектной модели окна, Window.alert()), которая не является частью самого стандарта языка JavaScript. Она выводит на экран модальное диалоговое окно с переданным текстом и кнопкой «ОК».
+    </p>
+    <p>
+      3. Что означает parseInt
+      parseInt() — это глобальная функция JavaScript, которая преобразует переданную строку в целое число.
+    </p>
+</body>
+</html>

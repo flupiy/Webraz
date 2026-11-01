@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Анкета</title>
+  <link rel="stylesheet" href="style.css">
+   <!-- Блок меню -->
+    <div class="menu-container">
+        <div class="menu-title">СЛОЙ МЕНЮ</div>
+        <br>
+      <a href="index.html" class="menu-link">Главная</a>
+        <a href="tablicy.html" class="menu-link">Таблицы</a>
+      <a href="zadanie_5.html" class="menu-link">Динамические таблицы</a>
+      <a href="Ex4.html" class="menu-link">Практическая работы 9. Задание 1</a>
+      <a href="Ex5.html" class="menu-link">Практическая работа 9. Задание 2</a>
+      <a href="Ex6.html" class="menu-link">Практическая работа 9. Задание 3</a>
+      <a href="Ex7.html" class="menu-link">Практическая работа 9. Задание 4</a>
+      <a href="Ex8.html" class="menu-link">Практическая работа 9. Задание 5</a>
+      <br>
+    </div>
+</head>
+<body>
+<FORM name="mainForm">
+
+<!-- Поле ввода -->
+<BR>Фамилия:
+<BR><INPUT TYPE='text' id="surname" VALUE='Иванов'><BR>
+
+<!-- Группа переключателей -->
+<H2>Группа переключателей</H2>
+<BR><INPUT TYPE='radio' NAME='color' value="Белый">Белый
+<BR><INPUT TYPE='radio' NAME='color' value="Красный">Красный
+<BR><INPUT TYPE='radio' NAME='color' value="Желтый">Желтый
+<BR><INPUT TYPE='radio' NAME='color' value="Зеленый">Зеленый<BR>
+
+<!-- Группа флажков -->
+<H2>Группа флажков</H2>
+<BR><INPUT TYPE='checkbox' NAME='fruit' value="Груша">Груша
+<BR><INPUT TYPE='checkbox' NAME='fruit' value="Персик">Персик
+<BR><INPUT TYPE='checkbox' NAME='fruit' value="Яблоко">Яблоко<BR>
+
+<TABLE>
+<CAPTION> <fONT SIZE='5'>Выберите страну:</fONT></CAPTION>
+<TR><TD VALIGN='top'>
+<!--Раскрывающийся список-->
+<SELECT NAME='COUNTRY' SIZE='1' id="country1">
+<OPTION VALUE='Беларусь'>Беларусь
+<OPTION VALUE='Казахстан'>Казахстан
+<OPTION VALUE='Россия'>Россия
+<OPTION VALUE='Украина'>Украина
+</SELECT></TD>
+<!--Обычный список-->
+<TD VALIGN='top'>
+<SELECT NAME='COUNTRIES' SIZE='3' MULTIPLE>
+<OPTION VALUE='Беларусь'>Беларусь
+<OPTION VALUE='Казахстан'>Казахстан
+<OPTION VALUE='Россия' SELECTED>Россия
+<OPTION VALUE='Украина'>Украина
+</SELECT></TD></TR></TABLE>
+<H2>Анкета</H2>
+  <BR>Ваше Имя:
+<BR><INPUT TYPE='text' id="username" VALUE=''><BR>
+  <BR>Ваш пол:
+  <BR><INPUT TYPE='radio' NAME='sex' value="Мужской">Мужской
+<BR><INPUT TYPE='radio' NAME='sex' value="Женский">Женский
+  <H4>На каком курсе вы учитесь?</H4>
+  <SELECT NAME='COURSE' SIZE='1' id="course">
+<OPTION VALUE='Первый'>Первый
+<OPTION VALUE='Второй'>Второй
+<OPTION VALUE='Третий'>Третий
+<OPTION VALUE='Четвёртый'>Четвёртый
+</SELECT>
+     <H4>Какие языки программирования вы знаете?</H4>
+    <BR><INPUT TYPE='checkbox' NAME='lang' value="Паскаль">Паскаль
+<BR><INPUT TYPE='checkbox' NAME='lang' value="СИ">СИ
+<BR><INPUT TYPE='checkbox' NAME='lang' value="Ассемблер">Ассемблер<BR>
+    <H4>Напишите несколько слов о себе</H4>
+    <TEXTAREA id="about"></TEXTAREA>
+    <BR>
+    <INPUT TYPE='button' VALUE='Отправка данных' onclick="showData()">
+    <INPUT TYPE='button' VALUE='Сброс значения полей' onclick="resetData()"> 
+</FORM>
+
+<!-- Блок, где будут появляться данные -->
+<div id="result" style="margin-top:20px; border:1px solid green; padding:10px; display:none;">
+    <h3>Вы отправили следующие данные:</h3>
+    <p id="output"></p>
+</div>
+
+<script>
+    function showData() {
+        // 1. Создаются переменные и берутся значения из полей по ID
+        var fam = document.getElementById('surname').value;
+        var name = document.getElementById('username').value;
+        var about = document.getElementById('about').value;
+        var course = document.getElementById('course').value;
+        var country = document.getElementById('country1').value;
+
+        // 2. Ищет выбранный цвет (радио кнопки)
+        var color = "Не выбрано";
+        var colors = document.getElementsByName('color');
+        for(var i=0; i<colors.length; i++){
+            if(colors[i].checked) color = colors[i].value;
+        }
+
+        // 3. Ищет выбранный пол
+        var sex = "Не указан";
+        var sexes = document.getElementsByName('sex');
+        for(var i=0; i<sexes.length; i++){
+            if(sexes[i].checked) sex = sexes[i].value;
+        }
+
+        // 4. Собираются фрукты и языки (чекбоксы)
+        var fruits = [];
+        var langs = [];
+        
+        var fItems = document.getElementsByName('fruit');
+        for(var i=0; i<fItems.length; i++){
+            if(fItems[i].checked) fruits.push(fItems[i].value);
+        }
+        
+        var lItems = document.getElementsByName('lang');
+        for(var i=0; i<lItems.length; i++){
+            if(lItems[i].checked) langs.push(lItems[i].value);
+        }
+
+        // 5. Формируется текст для вывода
+        var text = "<b>Фамилия:</b> " + fam + "<br>" +
+                   "<b>Имя:</b> " + name + "<br>" +
+                   "<b>Цвет:</b> " + color + "<br>" +
+                   "<b>Фрукты:</b> " + fruits.join(", ") + "<br>" +
+                   "<b>Страна:</b> " + country + "<br>" +
+                   "<b>Пол:</b> " + sex + "<br>" +
+                   "<b>Курс:</b> " + course + "<br>" +
+                   "<b>Языки:</b> " + langs.join(", ") + "<br>" +
+                   "<b>О себе:</b> " + about;
+
+        // 6. Вывод на экран
+        document.getElementById('output').innerHTML = text;
+        document.getElementById('result').style.display = 'block';
+    }
+
+    function resetData() {
+        // Очищается форма
+        document.mainForm.reset();
+        // Скрывается результат
+        document.getElementById('result').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

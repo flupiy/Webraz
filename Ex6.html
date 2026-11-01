@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <div class="menu-container">
+        <div class="menu-title">СЛОЙ МЕНЮ</div>
+        <br>
+        <a href="index.html" class="menu-link">Главная</a>
+    <a href="tablicy.html" class="menu-link">Таблицы</a>
+        <a href="anketa.html" class="menu-link">Анкета</a>
+      <a href="zadanie_5.html" class="menu-link">Динамические таблицы</a>
+      <a href="Ex4.html" class="menu-link">Практическая работы 9. Задание 1</a>
+      <a href="Ex5.html" class="menu-link">Практическая работа 9. Задание 2</a>
+      <a href="Ex7.html" class="menu-link">Практическая работа 9. Задание 4</a>
+      <a href="Ex8.html" class="menu-link">Практическая работа 9. Задание 5</a>
+      <br>
+    </div>
+    <title>Задание 3 - Таблица степеней</title>
+    <style>
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 5px 10px; text-align: center; }
+    </style>
+</head>
+<body> 
+    <h2>Таблица степеней двойки</h2>
+    <script type="text/javascript">
+        document.write("<table>");
+        document.write("<tr><th>Степень</th><th>Результат</th></tr>");
+        for (var i = 0; i <= 5; i++) {
+            document.write("<tr>");
+            document.write("<td>2<sup>" + i + "</sup></td>");
+            var result = Math.pow(2, i);
+            document.write("<td>" + result + "</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Задание 4 - confirm</title>
+</head>
+<body>
+
+    <h2>Ссылки</h2>
+
+    <!-- Ссылка на PDF с подтверждением -->
+    <!-- Используем void(0), чтобы ссылка не сработала, если пользователь нажмет "Отмена" -->
+    <p>
+        <a href="javascript:void(0);" onclick="downloadPdf()">
+            Скачать документ в формате PDF
+        </a>
+    </p>
+
+    <!-- Ссылка, меняющая фон при наведении -->
+    <p>
+        <a href="#" onmouseover="document.bgColor='red'" onmouseout="document.bgColor='white'">
+            Наведите на меня, чтобы изменить цвет фона
+        </a>
+    </p>
+
+    <script type="text/javascript">
+        function downloadPdf() {
+            // Выводим окно подтверждения
+            var result = confirm("Для загрузки документа требуется программа Acrobat. Продолжить загрузку?");
+            
+            if (result == true) {
+                // Если пользователь согласился, перенаправляем на PDF файл
+                // (Замените 'document.pdf' на реальное имя вашего файла)
+                window.location.href = "document.pdf";
+            }
+        }
+    </script>
+
+</body>
+</html>

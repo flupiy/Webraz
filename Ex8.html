@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <div class="menu-container">
+        <div class="menu-title">СЛОЙ МЕНЮ</div>
+        <br>
+        <a href="index.html" class="menu-link">Главная</a>
+    <a href="tablicy.html" class="menu-link">Таблицы</a>
+        <a href="anketa.html" class="menu-link">Анкета</a>
+      <a href="zadanie_5.html" class="menu-link">Динамические таблицы</a>
+      <a href="Ex4.html" class="menu-link">Практическая работы 9. Задание 1</a>
+      <a href="Ex5.html" class="menu-link">Практическая работа 9. Задание 2</a>
+      <a href="Ex6.html" class="menu-link">Практическая работа 9. Задание 3</a>
+      <a href="Ex7.html" class="menu-link">Практическая работа 9. Задание 4</a>  
+      <br>
+    </div>
+    <title>Задание 5 - Перенаправление</title>
+    <script type="text/javascript">
+        var browserName = navigator.appName;
+        if (browserName == "Microsoft Internet Explorer") {
+            window.location.href = "Ex1.html";
+        } else {
+            window.location.href = "Ex3.html";
+        }
+    </script>
+</head>
+<body>
+    <p>Перенаправление...</p>
+    <p>Если вы видите это сообщение, значит, файлы Ex1.html или Ex3.html не найдены в той же папке.</p>
+</body>
+</html>

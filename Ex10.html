@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Задание 2 - window</title>
+    
+    <script type="text/javascript">
+        function openHelpWindow() {
+            // Открываем окно 500x500, разрешаем изменение размеров
+            window.open("http://www.google.com", "_blank", 
+                        "width=500, height=500, resizable=yes, toolbar=no, scrollbars=yes");
+        }
+    </script>
+</head>
+<body>
+    <h1>Создание нового окна</h1>
+    <hr>
+    
+    <!-- Ссылка для вызова функции -->
+    <a href="javascript:void(0);" onclick="openHelpWindow()">
+        Щелкните на ссылке для получения справочной информации
+    </a>
+
+</body>
+</html>

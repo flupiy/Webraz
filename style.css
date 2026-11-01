@@ -1,0 +1,39 @@
+/* Общие настройки для всего документа */
+body {
+    font-family: 'Times New Roman', serif;
+}
+
+/* Контейнер меню (бывший div с inline-стилями) */
+.menu-container {
+    background-color: #fdf8e6;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 20px; /* Добавил отступ снизу, чтобы текст не прилипал к меню */
+}
+
+/* Заголовок "СЛОЙ МЕНЮ" */
+.menu-title {
+    color: white;
+    background-color: #c9b79b;
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 20px;
+}
+
+/* Ссылки внутри меню */
+.menu-link {
+    color: blue;
+    font-size: 20px;
+    text-decoration: none; /* Убирает подчеркивание, можно убрать эту строку, если нужно подчеркивание */
+    display: block; /* Чтобы ссылки были друг под другом, как в оригинале с <br> */
+    margin-top: 5px; /* Небольшой отступ между ссылками */
+}
+
+.menu-link:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Изображение */
+img {
+    width: 200px;
+}

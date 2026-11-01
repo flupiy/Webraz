@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 5. Анимация картинки</title>
+    <style>
+        #myImage {
+            width: 300px; 
+            height: auto; 
+            display: block; 
+            margin: 50px auto; 
+            transition: width 0.3s ease, transform 0.3s ease;
+        }
+        #myImage:hover {
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <img 
+        id="myImage" 
+        src="2.jpg" 
+        alt="Демонстрационное изображение"
+        onmouseover="enlargeImage()"
+        onmouseout="shrinkImage()">
+    <script>
+        var img = document.getElementById('myImage');
+        function enlargeImage() {
+            // Меняем ширину. Можно также использовать transform: scale(1.5);
+            img.style.width = '600px';
+        }
+        function shrinkImage() {
+            // Возвращаем исходное значение
+            img.style.width = '300px';
+        }
+    </script>
+</body>
+</html>

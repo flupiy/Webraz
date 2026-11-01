@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Практическая работа №5</title>
+    <script type="text/javascript">
+        var arr = ["Ivanov", "Petrov", "Sidorov"];
+        var counter = 0;
+        function add_to_list() {
+            if (typeof(arr[counter]) != "undefined") {
+                var list = document.getElementById('list');
+                var li = document.createElement('LI');
+                li.innerHTML = arr[counter];
+                list.appendChild(li);
+                counter++;
+            }
+        }
+    </script>
+  <link rel="stylesheet" href="style.css">
+   <!-- Блок меню -->
+    <div class="menu-container">
+        <div class="menu-title">СЛОЙ МЕНЮ</div>
+        <br>
+      <a href="index.html" class="menu-link">Главная</a>
+        <a href="tablicy.html" class="menu-link">Таблицы</a>
+        <a href="anketa.html" class="menu-link">Анкета</a>
+      <a href="Ex4.html" class="menu-link">Практическая работы 9. Задание 1</a>
+      <a href="Ex5.html" class="menu-link">Практическая работа 9. Задание 2</a>
+      <a href="Ex6.html" class="menu-link">Практическая работа 9. Задание 3</a>
+      <a href="Ex7.html" class="menu-link">Практическая работа 9. Задание 4</a>
+      <a href="Ex8.html" class="menu-link">Практическая работа 9. Задание 5</a>
+      <br>
+    </div>
+</head>
+<body>
+    <h2>Динамическое создание списка</h2>
+    <button onclick="add_to_list()">Добавить в список</button>
+    <ol id="list"></ol>
+</body>
+</html>
