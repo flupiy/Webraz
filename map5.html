@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Интерактивная карта Лос-Сантоса (GTA V)</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #1a1a1a; color: #fff; text-align: center; }
+        img { border: 3px solid #555; max-width: 100%; height: auto; }
+        /* Убираем рамку у зон и меняем курсор на указатель при наведении */
+        area { outline: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Карта Лос-Сантоса</h2>
+    <p>Наведите курсор на район, чтобы увидеть название</p>
+
+    <!-- Сама картинка. Не забудьте указать правильное имя файла в src -->
+    <img src="map5.jpg" usemap="#los_santos" alt="Карта Лос-Сантоса">
+
+    <map name="los_santos">
+        
+        <!-- 1. ВЕСПУЧЧИ-БИЧ (Пляж на западе) -->
+        <!-- Используем многоугольник, так как берег изогнутый -->
+        <area shape="poly" 
+              coords="120,250, 220,180, 300,280, 250,480, 180,430, 110,330" 
+              href="https://gta.fandom.com/wiki/Vespucci" 
+              alt="Веспуччи-Бич" 
+              title="Веспуччи-Бич (Vespucci Beach)">
+
+        <!-- 2. ДЕЛЬ-ПЕРРО И ПИРС (Юго-Запад) -->
+        <area shape="poly" 
+              coords="230,500, 380,480, 380,600, 300,650, 200,580" 
+              href="https://gta.fandom.com/wiki/Del_Perro" 
+              alt="Дель-Перро" 
+              title="Дель-Перро и Пирс (Del Perro Pier)">
+
+        <!-- 3. ЦЕНТР ГОРОДА (Даунтаун - небоскребы) -->
+        <area shape="rect" 
+              coords="420,280, 580,450" 
+              href="https://gta.fandom.com/wiki/Downtown_Los_Santos_(HD_Universe)" 
+              alt="Центр города" 
+              title="Даунтаун (Downtown Los Santos)">
+
+        <!-- 4. ВАЙНВУД (Северо-Восток, холмы) -->
+        <area shape="poly" 
+              coords="550,150, 750,200, 700,350, 580,300" 
+              href="https://gta.fandom.com/wiki/Vinewood_Hills" 
+              alt="Вайнвуд" 
+              title="Вайнвуд (Vinewood Hills)">
+
+        <!-- 5. МЕЖДУНАРОДНЫЙ АЭРОПОРТ ЛОС-САНТОСА (Юг) -->
+        <area shape="rect" 
+              coords="180,650, 400,850" 
+              href="https://gta.fandom.com/wiki/Los_Santos_International_Airport_(HD_Universe)" 
+              alt="Аэропорт" 
+              title="Аэропорт LSIA (Los Santos International Airport)">
+
+        <!-- 6. ПОРТ ЛОС-САНТОСА (Юго-Восток) -->
+        <area shape="rect" 
+              coords="650,700, 850,900" 
+              href="https://gta.fandom.com/wiki/Port_of_Los_Santos" 
+              alt="Порт" 
+              title="Порт Лос-Сантоса (Port of Los Santos)">
+
+        <!-- 7. ГОРА ЧИЛИАД / ПАЛЕТО (Север - зеленые зоны) -->
+        <area shape="poly" 
+              coords="100,50, 400,50, 500,150, 200,250" 
+              href="https://gta.fandom.com/ru/wiki/Гора_Чилиад_вселенной_HD" 
+              alt="Гора Чилиад" 
+              title="Гора Чилиад и Палето (Mount Chiliad / Paleto)">
+
+        <!-- 8. ТЮРЬМА И ГОРЫ (Северо-Восток) -->
+        <area shape="poly" 
+              coords="750,50, 950,50, 950,250, 750,300" 
+              href="https://gta.fandom.com/ru/wiki/Гора_Джосайя" 
+              alt="Гора Джошуа" 
+              title="Гора Джошуа и Тюрьма (Mount Josiah)">
+
+    </map>
+
+</body>
+</html>
