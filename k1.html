@@ -2,48 +2,116 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>Выбор картинки</title>
+    <title>Эффекты с картинками (Наведение и Клик)</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        /* Контейнер для картинок */
         .bas { 
             position: relative; 
             width: 1000px; 
             margin: auto; 
-            text-align: center; /* Чтобы картинки были по центру */
+            height: 550px; /* Фиксированная высота, так как картинки позиционируются абсолютно */
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
         }
+
+        /* Стили для всех картинок */
         .im { 
-            width: 300px; 
-            height: 200px; /* Добавил высоту, чтобы картинки были ровными */
-            object-fit: cover; /* Чтобы картинки не искажались */
-            border: 1px solid #000000; 
-            margin: 10px; 
+            position: absolute; 
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid #000000; 
+            z-index: 1;
             cursor: pointer;
+            transition: opacity 1s; /* Плавность для исчезновения/появления */
+        }
+
+        /* Координаты для картинок (сетка 2х3) */
+        #i1 {left: 20px; top: 20px;}
+        #i2 {left: 340px; top: 20px;}
+        #i3 {left: 660px; top: 20px;}
+        #i4 {left: 20px; top: 240px;}
+        #i5 {left: 340px; top: 240px;}
+        #i6 {left: 660px; top: 240px;}
+        
+        /* Стиль для увеличенной картинки */
+        .zoomed {
+            z-index: 10 !important; /* Поднимаем наверх */
+            width: 600px !important; /* Увеличиваем размер */
+            height: 400px !important;
+            left: 200px !important; /* Смещаем в центр контейнера */
+            top: 75px !important;
+            transition: width 1s, height 1s, left 1s, top 1s, opacity 1s !important;
         }
     </style>
 
     <script>
-        // Добавляем обработчик события наведения мыши на всё окно
-        addEventListener("mouseover", (ev) => {
-            let e = ev.target; // Получаем элемент, на который навели мышь
-
-            // Если навели на картинку (тег IMG)
-            if (e.tagName == "IMG") {
-                // Проходимся по всем 6 картинкам
+        // --- ЗАДАНИЕ 1: Эффект при наведении (mouseover / mouseout) ---
+        document.addEventListener("mouseover", (ev) => {
+            let e = ev.target;
+            // Если навели на картинку и она сейчас не увеличена
+            if (e.tagName === "IMG" && !e.classList.contains("zoomed")) {
                 for (let i = 1; i < 7; i++) {
                     let b = "i" + i;
-                    // Если ID текущей картинки НЕ СОВПАДАЕТ с ID той, на которую навели
-                    if (e.id != b) {
-                        let t = document.getElementById(b).style;
-                        t.transition = "opacity 1s"; // Плавное затухание за 1 секунду
-                        t.opacity = 0.1;             // Делаем почти прозрачной
+                    let img = document.getElementById(b);
+                    if (e.id !== b) {
+                        img.style.opacity = 0.1; // Бледнеют
                     }
                 }
-            } else {
-                // Если мышь увели с картинки (находится на пустом месте)
+            }
+        });
+
+        document.addEventListener("mouseout", (ev) => {
+            let e = ev.target;
+            if (e.tagName === "IMG" && !e.classList.contains("zoomed")) {
                 for (let i = 1; i < 7; i++) {
                     let b = "i" + i;
-                    let t = document.getElementById(b).style;
-                    t.transition = "opacity 2s"; // Плавное проявление за 2 секунды
-                    t.opacity = 1;               // Возвращаем полную видимость
+                    let img = document.getElementById(b);
+                    img.style.opacity = 1; 
+                }
+            }
+        });
+
+        // --- ЗАДАНИЕ 2: Эффект при клике (увеличение) ---
+        let isZoomed = false; 
+        let savedLeft = 0;
+        let savedTop = 0;
+
+        document.addEventListener("click", (ev) => {
+            let e = ev.target;
+
+            if (e.tagName === "IMG") {
+                if (!isZoomed) {
+                    isZoomed = true;
+                    savedLeft = e.offsetLeft;
+                    savedTop = e.offsetTop;
+                    for (let i = 1; i < 7; i++) {
+                        let b = "i" + i;
+                        if (e.id !== b) {
+                            document.getElementById(b).style.opacity = 0;
+                        }
+                    }
+                    
+                    e.classList.add("zoomed");
+                    e.style.opacity = 1; 
+                    
+                } else if (e.classList.contains("zoomed")) {
+                    // ВТОРОЙ КЛИК (Возврат на место) - срабатывает только по увеличенной картинке
+                    isZoomed = false;
+                    for (let i = 1; i < 7; i++) {
+                        let b = "i" + i;
+                        document.getElementById(b).style.opacity = 1;
+                    }
+                    
+                    // Убираем класс (картинка уменьшается и возвращается на место)
+                    e.classList.remove("zoomed");
+                    e.style.left = savedLeft + "px";
+                    e.style.top = savedTop + "px";
                 }
             }
         });
@@ -51,10 +119,9 @@
 </head>
 <body>
 
-    <h2 style="text-align: center;">Наведите на любую картинку</h2>
+    <h2 style="text-align: center;">Наведите мышку (бледнеют) или кликните (увеличивается)</h2>
 
     <div class="bas">
-        <!-- Замените ссылки в src на свои (например, img/p1.png) -->
         <img id="i1" class="im" src="GtaVice.jpeg" alt="Фото 1">
         <img id="i2" class="im" src="Gta3.jpg" alt="Фото 2">
         <img id="i3" class="im" src="GtaSA.jpg" alt="Фото 3">
