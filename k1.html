@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Выбор картинки</title>
+    <style>
+        .bas { 
+            position: relative; 
+            width: 1000px; 
+            margin: auto; 
+            text-align: center; /* Чтобы картинки были по центру */
+        }
+        .im { 
+            width: 300px; 
+            height: 200px; /* Добавил высоту, чтобы картинки были ровными */
+            object-fit: cover; /* Чтобы картинки не искажались */
+            border: 1px solid #000000; 
+            margin: 10px; 
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        // Добавляем обработчик события наведения мыши на всё окно
+        addEventListener("mouseover", (ev) => {
+            let e = ev.target; // Получаем элемент, на который навели мышь
+
+            // Если навели на картинку (тег IMG)
+            if (e.tagName == "IMG") {
+                // Проходимся по всем 6 картинкам
+                for (let i = 1; i < 7; i++) {
+                    let b = "i" + i;
+                    // Если ID текущей картинки НЕ СОВПАДАЕТ с ID той, на которую навели
+                    if (e.id != b) {
+                        let t = document.getElementById(b).style;
+                        t.transition = "opacity 1s"; // Плавное затухание за 1 секунду
+                        t.opacity = 0.1;             // Делаем почти прозрачной
+                    }
+                }
+            } else {
+                // Если мышь увели с картинки (находится на пустом месте)
+                for (let i = 1; i < 7; i++) {
+                    let b = "i" + i;
+                    let t = document.getElementById(b).style;
+                    t.transition = "opacity 2s"; // Плавное проявление за 2 секунды
+                    t.opacity = 1;               // Возвращаем полную видимость
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <h2 style="text-align: center;">Наведите на любую картинку</h2>
+
+    <div class="bas">
+        <!-- Замените ссылки в src на свои (например, img/p1.png) -->
+        <img id="i1" class="im" src="https://picsum.photos/id/111/300/200" alt="Фото 1">
+        <img id="i2" class="im" src="https://picsum.photos/id/112/300/200" alt="Фото 2">
+        <img id="i3" class="im" src="https://picsum.photos/id/113/300/200" alt="Фото 3">
+        <img id="i4" class="im" src="https://picsum.photos/id/114/300/200" alt="Фото 4">
+        <img id="i5" class="im" src="https://picsum.photos/id/115/300/200" alt="Фото 5">
+        <img id="i6" class="im" src="https://picsum.photos/id/116/300/200" alt="Фото 6">
+    </div>
+
+</body>
+</html>
