@@ -21,16 +21,19 @@ body {
 }
 
 /* Ссылки внутри меню */
-.menu-link {
-    color: blue;
+.button {
+    padding: 10px 20px;
+    background-color: grey;
+    color: #000;
     font-size: 20px;
-    text-decoration: none; /* Убирает подчеркивание, можно убрать эту строку, если нужно подчеркивание */
-    display: block; /* Чтобы ссылки были друг под другом, как в оригинале с <br> */
-    margin-top: 5px; /* Небольшой отступ между ссылками */
+    text-decoration: none; 
+    display: block; 
+    margin-top: 5px; 
+    border-radius: 4px;
 }
 
-.menu-link:hover {
-    text-decoration: underline; /* Подчеркивание при наведении */
+.button:hover {
+    background-color: #fff;
 }
 
 /* Изображение */
