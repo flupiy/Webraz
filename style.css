@@ -21,18 +21,15 @@ body {
 }
 
 /* Ссылки внутри меню */
-.button {
-    padding: 10px 20px;
-    background-color: grey;
-    color: #000;
+.menu-link {
+    color: blue;
     font-size: 20px;
     text-decoration: none; 
     display: block; 
     margin-top: 5px; 
-    border-radius: 4px;
 }
 
-.button:hover {
+.menu-link:hover {
     background-color: #fff;
 }
 
