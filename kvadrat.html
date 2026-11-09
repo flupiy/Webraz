@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>9.11</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="kvadrat"><div>
+<script>
+const table = document.createElement('table');
+const size = 10;
+for (let row = 0; row < size; roww++) {
+const tr = document.createElement('tr');
+for (let col = 0; col < size; col++){
+const td = document.createElement('td');
+if (row+col<9)
+{td.style.backgroundColor = '#3DE1E1'; } 
+else { td.style.backgroundColor='#120A8F';}
+tr.appendChild(td);}
+table.appendChild(tr);}
+document.getElementById('kvadrat').appendChild(table);
+</script>
+</body>
+</html>
