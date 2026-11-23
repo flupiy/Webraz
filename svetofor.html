@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Светофор</title>
+</head>
+<body>
+
+    <div class="svetofor">
+        <div id="red" class="light" style="background-color: red;"></div>
+        <div id="yellow" class="light"></div>
+        <div id="green" class="light"></div>
+    </div>
+
+    <button onclick="changeLight()">Следующий сигнал</button>
+
+    <script>
+        let step = 0; // 0 - красный, 1 - желтый, 2 - зеленый
+
+        function changeLight() {
+            let red = document.getElementById("red");
+            let yellow = document.getElementById("yellow");
+            let green = document.getElementById("green");
+
+            red.style.backgroundColor = "#555";
+            yellow.style.backgroundColor = "#555";
+            green.style.backgroundColor = "#555";
+
+            if (step == 0) {
+                red.style.backgroundColor = "red";
+                step = 1;
+            } else if (step == 1) {
+                yellow.style.backgroundColor = "yellow";
+                step = 2;
+            } else {
+                green.style.backgroundColor = "green";
+                step = 0;
+            }
+        }
+    </script>
+</body>
+</html>
